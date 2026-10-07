@@ -7,6 +7,8 @@
 
 - Mongkids 백엔드 API 서버 (Spring Boot 기반 REST API)
 - 현재 상태: Spring Initializr로 생성한 직후의 초기 프로젝트. 도메인 코드 없음.
+- 요구사항 → [docs/requirements.md](docs/requirements.md)
+- 진행 사항 → [docs/progress.md](docs/progress.md)
 
 ## 기술 스택
 
