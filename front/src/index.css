@@ -1,0 +1,106 @@
+:root {
+  /* 브랜드 컬러 */
+  --yellow: #ffd94a;
+  --yellow-soft: #fff5d1;
+  --cream: #fffaf0;
+  --blue: #3a6fd8;
+  --blue-soft: #e9f0fd;
+  --green: #74b944;
+  --green-soft: #eef6e8;
+
+  /* 텍스트 · 배경 */
+  --text: #1f2430;
+  --text-sub: #555c6b;
+  --text-muted: #8a909c;
+  --bg: #fff;
+  --bg-soft: #f4f7fc;
+  --border: #e8e9ee;
+
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 4px 16px rgba(31, 36, 48, 0.06);
+  --shadow-md: 0 8px 24px rgba(31, 36, 48, 0.12);
+
+  --header-height: 80px;
+  --container: 1200px;
+
+  font-family:
+    'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo',
+    'Malgun Gothic', sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.main {
+  padding-bottom: 96px;
+}
+
+/* 섹션 공통 제목 */
+.section-heading {
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.section-heading__eyebrow {
+  margin: 0 0 4px;
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+}
+
+.section-heading__eyebrow span {
+  color: var(--blue);
+}
+
+.section-heading__title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --header-height: 64px;
+  }
+
+  .container {
+    padding: 0 16px;
+  }
+}

@@ -1,0 +1,37 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 999px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--md {
+  padding: 10px 18px;
+  font-size: 14px;
+}
+
+.btn--lg {
+  padding: 16px 30px;
+  font-size: 16px;
+}
+
+.btn--yellow {
+  background: var(--yellow);
+  color: var(--text);
+}
+
+.btn--blue {
+  background: var(--blue);
+  color: #fff;
+}

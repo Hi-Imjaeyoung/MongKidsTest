@@ -1,0 +1,129 @@
+.reviews {
+  margin-top: 56px;
+}
+
+.reviews__panel {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 32px;
+  background: var(--bg-soft);
+  border-radius: var(--radius-lg);
+}
+
+.reviews__title {
+  position: relative;
+  margin: 0;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--text);
+}
+
+.reviews__title-line {
+  display: block;
+}
+
+.reviews__bubble {
+  position: absolute;
+  top: -8px;
+  right: 0;
+  font-size: 30px;
+}
+
+.reviews__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 16px;
+  background: #fff;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.review-card__stars {
+  font-size: 18px;
+  letter-spacing: 2px;
+  color: #ffc21a;
+}
+
+.review-card__content {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text);
+  word-break: keep-all;
+}
+
+.review-card__author {
+  margin: 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.reviews__next {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--blue);
+  color: #fff;
+  font-size: 26px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.reviews__next:hover {
+  transform: scale(1.08);
+}
+
+@media (max-width: 1024px) {
+  .reviews__panel {
+    grid-template-columns: 1fr auto;
+  }
+
+  .reviews__title {
+    grid-column: 1 / -1;
+  }
+
+  .reviews__title-line {
+    display: inline;
+  }
+
+  .reviews__bubble {
+    position: static;
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .reviews__panel {
+    padding: 24px 16px;
+  }
+
+  .reviews__title {
+    font-size: 22px;
+  }
+
+  .reviews__list {
+    grid-template-columns: 1fr;
+  }
+
+  /* 모바일에서는 한 장씩 넘겨 본다 */
+  .review-card:not(:first-child) {
+    display: none;
+  }
+}
