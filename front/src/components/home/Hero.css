@@ -1,0 +1,147 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+  padding-bottom: 80px;
+}
+
+/* 우측 사진 영역: 좌측이 둥글게 잘린 형태 */
+.hero__visual {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 52%;
+  border-radius: 320px 0 0 0;
+  overflow: hidden;
+  border-left: 4px dashed var(--yellow);
+}
+
+.hero__inner {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__content {
+  max-width: 600px;
+  padding: 96px 0 40px 56px;
+}
+
+.hero__title {
+  margin: 0 0 28px;
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1.25;
+  letter-spacing: -1.5px;
+  color: var(--text);
+}
+
+.hero__title-line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero__highlight {
+  font-style: normal;
+  color: var(--blue);
+}
+
+.hero__description {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 36px;
+  font-size: 19px;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.hero__deco {
+  position: absolute;
+  pointer-events: none;
+}
+
+.hero__deco--blob {
+  left: -60px;
+  bottom: -40px;
+  width: 220px;
+  height: 160px;
+  background: var(--yellow-soft);
+  border-radius: 50% 60% 0 0;
+}
+
+.hero__deco--star {
+  left: 46%;
+  top: 18%;
+  font-size: 22px;
+  color: var(--yellow);
+}
+
+.hero__deco--dot {
+  left: 44%;
+  top: 30%;
+  width: 18px;
+  height: 18px;
+  border: 4px solid var(--yellow);
+  border-radius: 50%;
+}
+
+@media (max-width: 1024px) {
+  .hero__content {
+    padding-left: 0;
+  }
+
+  .hero__title {
+    font-size: 42px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    display: flex;
+    flex-direction: column-reverse;
+    min-height: 0;
+    padding-bottom: 48px;
+  }
+
+  .hero__visual {
+    position: relative;
+    width: 100%;
+    height: 260px;
+    border-radius: 0 0 0 120px;
+    border-left: 0;
+  }
+
+  .hero__content {
+    max-width: none;
+    padding: 32px 0 24px;
+  }
+
+  .hero__title-line {
+    white-space: normal;
+  }
+
+  .hero__title {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+
+  .hero__description {
+    font-size: 16px;
+    margin-bottom: 28px;
+  }
+
+  .hero__actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .hero__deco--star,
+  .hero__deco--dot {
+    display: none;
+  }
+}

@@ -1,0 +1,140 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  height: var(--header-height);
+}
+
+/* 로고: 실제 로고 이미지가 준비되면 교체 */
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px 6px 8px;
+  background: var(--yellow);
+  border: 3px solid var(--text);
+  border-radius: 999px 999px 999px 24px;
+  transform: rotate(-8deg);
+  flex-shrink: 0;
+}
+
+.logo__mascot {
+  font-size: 26px;
+  line-height: 1;
+}
+
+.logo__text {
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--blue);
+  letter-spacing: -0.5px;
+}
+
+.gnb {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.gnb__list {
+  display: flex;
+  gap: 32px;
+}
+
+.gnb__link {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  transition: color 0.15s;
+}
+
+.gnb__link:hover {
+  color: var(--blue);
+}
+
+.header__cta {
+  display: flex;
+  gap: 8px;
+}
+
+.header__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.header__toggle span {
+  display: block;
+  height: 2px;
+  background: var(--text);
+  border-radius: 2px;
+}
+
+@media (max-width: 1280px) {
+  .gnb,
+  .gnb__list {
+    gap: 20px;
+  }
+
+  .gnb__link {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .header__toggle {
+    display: flex;
+  }
+
+  .gnb {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px 20px 24px;
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+  }
+
+  .gnb--open {
+    display: flex;
+  }
+
+  .gnb__list {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .gnb__link {
+    display: block;
+    padding: 12px 4px;
+    font-size: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header__cta {
+    flex-direction: column;
+  }
+}
