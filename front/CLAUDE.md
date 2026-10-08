@@ -1,0 +1,64 @@
+# CLAUDE.md
+
+이 파일은 Mongkids 프론트엔드에서 작업할 때 Claude Code(및 개발자)가 따라야 할 핵심 규칙을 담는다.
+저장소 공통 규칙은 루트 [CLAUDE.md](../CLAUDE.md), 프론트엔드 상세 규칙은 `front/docs/` 아래 문서를 참고한다.
+
+## 프로젝트 개요
+
+- Mongkids 웹 프론트엔드 (Vite + React SPA)
+- 현재 상태: 홈 화면(SCR-001) 시안을 정적 데이터로 구현. API 미연동, 라우팅 없음.
+- 요구사항 (백엔드와 공유) → [../docs/requirements.md](../docs/requirements.md)
+- 진행 사항 (백엔드와 공유) → [../docs/progress.md](../docs/progress.md)
+- 디자인 시안 → [../docs/design/](../docs/design/)
+
+## 기술 스택
+
+| 구분 | 내용 |
+|---|---|
+| Language | JavaScript (JSX). TypeScript 미사용 |
+| Framework | React 19 |
+| Build | Vite 8 (`@vitejs/plugin-react`) |
+| Lint | ESLint 10 (react-hooks, react-refresh) |
+| Style | 일반 CSS (컴포넌트별 파일) + `src/index.css` 디자인 토큰 |
+| Font | Pretendard (CDN, `index.html`) |
+
+## 자주 쓰는 명령 (`front/`에서)
+
+```bash
+npm install
+npm run dev        # 개발 서버
+npm run lint       # ESLint
+npm run build      # 프로덕션 빌드 (dist/)
+npm run preview    # 빌드 결과 미리보기
+```
+
+## 아키텍처 요약 → [docs/architecture.md](docs/architecture.md)
+
+- `pages/`(화면 조립) → `components/{layout,home,common}/`(UI) ← `data/`(콘텐츠)
+- 화면 문구·수치·목록은 컴포넌트에 하드코딩하지 않고 `src/data/`에 둔다. API 연동 시 이 데이터만 응답값으로 교체한다.
+
+## 핵심 코딩 규칙 → [docs/coding-conventions.md](docs/coding-conventions.md)
+
+- 함수 컴포넌트 + `export default`. 파일명은 PascalCase (`ServiceCards.jsx`).
+- 컴포넌트 CSS는 같은 폴더에 같은 이름으로 두고 컴포넌트에서 import (`ServiceCards.css`).
+- 클래스명은 BEM 형식 (`service-card__title`, `service-card--blue`).
+- 색상·둥글기·그림자는 `src/index.css`의 CSS 변수를 사용한다. 값 직접 입력 지양.
+- 버튼은 `common/Button`, 이미지 자리는 `common/ImagePlaceholder`를 재사용한다.
+
+## Git → [../docs/git-workflow.md](../docs/git-workflow.md)
+
+- 프론트엔드 커밋은 scope `front` 사용 (`feat(front): ...`, `fix(front): ...`)
+
+## Claude 작업 원칙 (프론트엔드)
+
+공통 원칙은 루트 [CLAUDE.md](../CLAUDE.md)를 따른다.
+
+- 코드를 바꾼 뒤에는 `front/`에서 `npm run lint && npm run build`로 검증하고 결과를 그대로 보고한다.
+- 화면 변경은 가능하면 실제로 띄워 데스크톱·모바일 폭에서 확인한다.
+- 기존 코드의 스타일(들여쓰기: 공백 2칸, 세미콜론 없음, 작은따옴표)을 따른다.
+
+## 알려진 이슈 / TODO
+
+- [ ] 실제 사진·로고·아이콘 리소스 없음 → `ImagePlaceholder`, 이모지로 대체 중
+- [ ] 라우팅 미도입 (메뉴 링크는 `#` 앵커)
+- [ ] API 미연동, `vite.config.js`에 `/api` 프록시 미설정

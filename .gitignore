@@ -1,0 +1,22 @@
+# 공통 무시 규칙. 영역별 규칙은 back/.gitignore, front/.gitignore 참고
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.idea/
+*.iml
+.vscode/*
+!.vscode/extensions.json
+
+# 비밀값 · 로컬 설정
+.env
+.env.*
+!.env.example
+application-local.yml
+application-local.properties
+
+# 로그
+*.log

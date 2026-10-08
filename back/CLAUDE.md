@@ -1,14 +1,14 @@
 # CLAUDE.md
 
 이 파일은 Mongkids 백엔드에서 작업할 때 Claude Code(및 개발자)가 따라야 할 핵심 규칙을 담는다.
-상세 규칙은 `docs/` 아래 문서를 참고한다.
+저장소 공통 규칙은 루트 [CLAUDE.md](../CLAUDE.md), 백엔드 상세 규칙은 `back/docs/` 아래 문서를 참고한다.
 
 ## 프로젝트 개요
 
 - Mongkids 백엔드 API 서버 (Spring Boot 기반 REST API)
 - 현재 상태: Spring Initializr로 생성한 직후의 초기 프로젝트. 도메인 코드 없음.
-- 요구사항 → [docs/requirements.md](docs/requirements.md)
-- 진행 사항 → [docs/progress.md](docs/progress.md)
+- 요구사항 (프론트와 공유) → [../docs/requirements.md](../docs/requirements.md)
+- 진행 사항 (프론트와 공유) → [../docs/progress.md](../docs/progress.md)
 
 ## 기술 스택
 
@@ -72,16 +72,15 @@
 - Controller는 `@WebMvcTest`, Repository는 `@DataJpaTest`, 통합은 `@SpringBootTest`.
 - given / when / then 구조, `@DisplayName`은 한글로 의도를 설명.
 
-## Git → [docs/git-workflow.md](docs/git-workflow.md)
+## Git → [../docs/git-workflow.md](../docs/git-workflow.md)
 
-- 브랜치: `main`, `feature/*`, `fix/*`, `refactor/*`, `docs/*`
-- 커밋: Conventional Commits (`feat:`, `fix:`, `refactor:`, `test:`, `docs:`, `chore:`)
+- 백엔드 커밋은 scope `back` 사용 (`feat(back): ...`, `fix(back): ...`)
 
-## Claude 작업 원칙
+## Claude 작업 원칙 (백엔드)
 
-- 요청 범위 밖의 코드는 수정하지 않는다. 필요해 보이면 먼저 제안한다.
-- 새 의존성 추가, 패키지 구조 변경, 설정 파일 변경은 사용자 확인 후 진행한다.
-- 코드를 바꾼 뒤에는 `./gradlew build`(최소 `test`)로 검증하고 결과를 그대로 보고한다.
+공통 원칙은 루트 [CLAUDE.md](../CLAUDE.md)를 따른다.
+
+- 코드를 바꾼 뒤에는 `back/`에서 `./gradlew build`(최소 `test`)로 검증하고 결과를 그대로 보고한다.
 - 기존 코드의 스타일(들여쓰기: 탭, 네이밍, 주석 밀도)을 따른다.
 
 ## 알려진 이슈 / TODO
@@ -89,4 +88,4 @@
 - [ ] DataSource 미설정: 현재 `application.properties`에 DB 설정이 없어 앱 기동과 `DemoApplicationTests.contextLoads`가 실패한다. → [docs/database.md](docs/database.md)의 설정 가이드대로 profile별 설정 추가 필요.
 - [ ] 기본 패키지 `com.example.demo` → `com.mongkids`, `rootProject.name`/`spring.application.name` `demo` → `mongkids` 변경 예정. 변경 전까지 새 코드는 현재 패키지(`com.example.demo`) 아래에 동일한 구조로 작성한다.
 - [ ] `global/` 공통 클래스(`ApiResponse`, `ErrorCode`, `BusinessException`, `GlobalExceptionHandler`, `BaseTimeEntity`) 미구현.
-- 문서의 아키텍처 결정은 초기 권장안이며, 변경 시 이 파일과 `docs/`를 함께 갱신한다.
+- 문서의 아키텍처 결정은 초기 권장안이며, 변경 시 이 파일과 `back/docs/`를 함께 갱신한다.
